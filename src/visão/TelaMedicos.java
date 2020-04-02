@@ -24,6 +24,7 @@ public class TelaMedicos extends javax.swing.JFrame {
      */
     public TelaMedicos() {
         initComponents();
+        jButtonExcluir.setEnabled(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -52,6 +53,8 @@ public class TelaMedicos extends javax.swing.JFrame {
         jTextFieldPesquisaIdade = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jTextFieldPesquisaCodigo = new javax.swing.JTextField();
+        jButtonEditar = new javax.swing.JButton();
+        jButtonExcluir = new javax.swing.JButton();
         jLabelBackgd = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -166,6 +169,8 @@ public class TelaMedicos extends javax.swing.JFrame {
         jLabel4.setText("Nome:");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(320, 230, 60, 14);
+
+        jTextFieldPesquisaNome.setEnabled(false);
         getContentPane().add(jTextFieldPesquisaNome);
         jTextFieldPesquisaNome.setBounds(360, 230, 210, 20);
 
@@ -177,6 +182,7 @@ public class TelaMedicos extends javax.swing.JFrame {
         getContentPane().add(jLabel6);
         jLabel6.setBounds(320, 290, 60, 14);
 
+        jTextFieldPesquisaEpecializacao.setEnabled(false);
         jTextFieldPesquisaEpecializacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPesquisaEpecializacaoActionPerformed(evt);
@@ -184,14 +190,36 @@ public class TelaMedicos extends javax.swing.JFrame {
         });
         getContentPane().add(jTextFieldPesquisaEpecializacao);
         jTextFieldPesquisaEpecializacao.setBounds(410, 260, 160, 20);
+
+        jTextFieldPesquisaIdade.setEnabled(false);
         getContentPane().add(jTextFieldPesquisaIdade);
         jTextFieldPesquisaIdade.setBounds(370, 290, 60, 20);
 
         jLabel7.setText("codigo");
         getContentPane().add(jLabel7);
         jLabel7.setBounds(440, 290, 80, 14);
+
+        jTextFieldPesquisaCodigo.setEnabled(false);
         getContentPane().add(jTextFieldPesquisaCodigo);
         jTextFieldPesquisaCodigo.setBounds(520, 290, 59, 20);
+
+        jButtonEditar.setText("Editar Cadastro");
+        jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonEditar);
+        jButtonEditar.setBounds(380, 330, 150, 23);
+
+        jButtonExcluir.setText("Excluir");
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExcluirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonExcluir);
+        jButtonExcluir.setBounds(460, 200, 70, 23);
 
         jLabelBackgd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/maxresdefault.jpg"))); // NOI18N
         jLabelBackgd.setText("jLabelFundo");
@@ -237,8 +265,24 @@ public class TelaMedicos extends javax.swing.JFrame {
          jTextFieldPesquisaEpecializacao.setText(mod.getEspecialização());
          jTextFieldPesquisaCodigo.setText(String.valueOf(mod.getCodigoMedico()));
          jTextFieldPesquisaIdade.setText(mod.getIdadeMedico());
+         DAOMedico t = new DAOMedico();
+         jButtonExcluir.setEnabled(t.testar());
 
     }//GEN-LAST:event_jButtonPesquisarActionPerformed
+
+    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
+        
+        TelaEditar tela = new TelaEditar();
+        tela.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonEditarActionPerformed
+
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+       BeansMedico m = new BeansMedico();
+       m.setCodigoMedico ( Integer.parseInt(jTextFieldPesquisaCodigo.getText()));
+       DAOMedico d = new DAOMedico();
+       d.excluir(m);
+    }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -278,6 +322,8 @@ public class TelaMedicos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdicionar;
+    private javax.swing.JButton jButtonEditar;
+    private javax.swing.JButton jButtonExcluir;
     private javax.swing.JButton jButtonPesquisar;
     private javax.swing.JButton jButtonVoltar;
     private javax.swing.JLabel jLabel1;

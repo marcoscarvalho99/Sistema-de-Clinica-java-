@@ -4,6 +4,8 @@ import javax.swing.JOptionPane;
 
 public class TelaLogin extends javax.swing.JFrame {
     public TelaLogin() {
+        
+        //setExtendedState(MAXIMIZED_BOTH);
         initComponents();
     }
 

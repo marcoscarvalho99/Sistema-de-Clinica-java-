@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/lenovo/Documents/NetBeansProjects/clinica/src/controle/ControleMedico.java</file>
-            <file>file:/C:/Users/lenovo/Documents/NetBeansProjects/clinica/src/visão/Medicos.java</file>
-            <file>file:/C:/Users/lenovo/Documents/NetBeansProjects/clinica/src/modelo/ModeloMedico.java</file>
-            <file>file:/C:/Users/lenovo/Documents/NetBeansProjects/clinica/src/controle/ControlePaciente.java</file>
-            <file>file:/C:/Users/lenovo/Documents/NetBeansProjects/clinica/src/modelo/ModeloPaciente.java</file>
-            <file>file:/C:/Users/lenovo/Documents/NetBeansProjects/clinica/src/visão/Pacientes.java</file>
-            <file>file:/C:/Users/lenovo/Documents/NetBeansProjects/clinica/src/modelo/ModeloEnfermeira.java</file>
+            <file>file:/C:/Users/lenovo/Documents/NetBeansProjects/clinica/src/modeloDAO/DAOMedico.java</file>
+            <file>file:/C:/Users/lenovo/Documents/NetBeansProjects/clinica/src/visão/TelaMedicos.java</file>
+            <file>file:/C:/Users/lenovo/Documents/NetBeansProjects/clinica/src/visão/TelaLogin.java</file>
+            <file>file:/C:/Users/lenovo/Documents/NetBeansProjects/clinica/src/modeloConexao/ConexaoBd.java</file>
         </group>
     </open-files>
 </project-private>
