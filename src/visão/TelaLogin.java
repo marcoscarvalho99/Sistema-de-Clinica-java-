@@ -1,6 +1,8 @@
 package visão;
 
 import javax.swing.JOptionPane;
+import modeloBeans.BeansCadastrar;
+import modeloDAO.DaoCadastrar;
 
 public class TelaLogin extends javax.swing.JFrame {
     public TelaLogin() {
@@ -20,6 +22,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabelSenha = new javax.swing.JLabel();
         jTextFieldUsuario = new javax.swing.JTextField();
         jPasswordField = new javax.swing.JPasswordField();
+        jButtonCad = new javax.swing.JButton();
         jLabelFundoIcon = new javax.swing.JLabel();
         jLabelFundo = new javax.swing.JLabel();
 
@@ -71,6 +74,15 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().add(jPasswordField);
         jPasswordField.setBounds(90, 160, 210, 14);
 
+        jButtonCad.setText("Cadastrar  Usuario");
+        jButtonCad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonCad);
+        jButtonCad.setBounds(320, 270, 170, 23);
+
         jLabelFundoIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/unnamed.png"))); // NOI18N
         getContentPane().add(jLabelFundoIcon);
         jLabelFundoIcon.setBounds(80, 80, 450, 420);
@@ -84,17 +96,20 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAcessarActionPerformed
+        BeansCadastrar cad = new BeansCadastrar();
+        DaoCadastrar c = new DaoCadastrar();
+        c.Buscar(cad);
         
-        if(jTextFieldUsuario.getText().equals("adm") && jPasswordField.getText().equals("12345")){
+        if(jTextFieldUsuario.getText().equals(cad.getUsuario()) && jPasswordField.getText().equals(cad.getSenha())){
         TelaPrincipal tela = new TelaPrincipal();
         tela.setVisible(true);
         dispose();
         }
        
-        else if(jTextFieldUsuario.getText()!="adm" && jPasswordField.getText().equals("12345")){
+        else if((jTextFieldUsuario.getText() == null ? cad.getUsuario() != null : !jTextFieldUsuario.getText().equals(cad.getUsuario())) && jPasswordField.getText().equals(cad.getSenha())){
         JOptionPane.showMessageDialog(rootPane, "Usuario invalido!");
         }
-        else if(jPasswordField.getText()!="12345" && jTextFieldUsuario.getText().equals("adm")){
+        else if((jPasswordField.getText() == null ? cad.getSenha() != null : !jPasswordField.getText().equals(cad.getSenha())) && jTextFieldUsuario.getText().equals(cad.getUsuario())){
         JOptionPane.showMessageDialog(rootPane, "senha invalida!");
         }
         else {
@@ -106,6 +121,12 @@ public class TelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jButtonSairActionPerformed
+
+    private void jButtonCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadActionPerformed
+        CadastrarUsuario tela = new CadastrarUsuario();
+        tela.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonCadActionPerformed
 
     public static void main(String args[]) {
 
@@ -119,6 +140,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAcessar;
+    private javax.swing.JButton jButtonCad;
     private javax.swing.JButton jButtonSair;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelFundo;
