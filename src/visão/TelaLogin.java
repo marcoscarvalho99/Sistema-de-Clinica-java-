@@ -98,18 +98,21 @@ public class TelaLogin extends javax.swing.JFrame {
     private void jButtonAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAcessarActionPerformed
         BeansCadastrar cad = new BeansCadastrar();
         DaoCadastrar c = new DaoCadastrar();
+        String temp= pegarValor();
+        c.setUsuario(temp);
         c.Buscar(cad);
         
-        if(jTextFieldUsuario.getText().equals(cad.getUsuario()) && jPasswordField.getText().equals(cad.getSenha())){
+        
+        if(jTextFieldUsuario.getText().equals(c.getUsuario()) && jPasswordField.getText().equals(c.getSenha())){
         TelaPrincipal tela = new TelaPrincipal();
         tela.setVisible(true);
         dispose();
         }
        
-        else if((jTextFieldUsuario.getText() == null ? cad.getUsuario() != null : !jTextFieldUsuario.getText().equals(cad.getUsuario())) && jPasswordField.getText().equals(cad.getSenha())){
+        else if((jTextFieldUsuario.getText() == null ? c.getUsuario() != null : !jTextFieldUsuario.getText().equals(c.getUsuario())) && jPasswordField.getText().equals(c.getSenha())){
         JOptionPane.showMessageDialog(rootPane, "Usuario invalido!");
         }
-        else if((jPasswordField.getText() == null ? cad.getSenha() != null : !jPasswordField.getText().equals(cad.getSenha())) && jTextFieldUsuario.getText().equals(cad.getUsuario())){
+        else if((jPasswordField.getText() == null ? c.getSenha() != null : !jPasswordField.getText().equals(c.getSenha())) && jTextFieldUsuario.getText().equals(c.getUsuario())){
         JOptionPane.showMessageDialog(rootPane, "senha invalida!");
         }
         else {
@@ -121,9 +124,12 @@ public class TelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jButtonSairActionPerformed
-
+public String pegarValor(){
+    
+    return jTextFieldUsuario.getText();
+}
     private void jButtonCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadActionPerformed
-        CadastrarUsuario tela = new CadastrarUsuario();
+        TelaCadastrarUsuario tela = new TelaCadastrarUsuario();
         tela.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonCadActionPerformed
